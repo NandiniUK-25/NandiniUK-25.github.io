@@ -1,0 +1,31 @@
+name: weekly refresh
+
+on:
+  schedule:
+    # every Sunday at 16:00 UTC (noon Eastern in DST)
+    - cron: '0 16 * * 0'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: bump last-updated date
+        run: |
+          today=$(date -u +%Y-%m-%d)
+          sed -i 's|<span class="last-updated" id="last-updated">[^<]*</span>|<span class="last-updated" id="last-updated">'"$today"'</span>|' index.html
+
+      - name: commit if changed
+        run: |
+          if [[ -n $(git status --porcelain) ]]; then
+            git config user.name "Nandini Udayakumar"
+            git config user.email "nandini.uk04@gmail.com"
+            git add -A
+            git commit -m "bump last-updated"
+            git push
+          fi

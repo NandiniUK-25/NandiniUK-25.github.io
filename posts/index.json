@@ -1,0 +1,34 @@
+[
+  {
+    "slug": "2026-05-08-one-semester-left",
+    "title": "One semester left: finals, the capstone defense, and what's next",
+    "date": "2026-05-08",
+    "tags": ["life", "gmu", "recruiting"],
+    "excerpt": "Spring 2026 finals are this week. Senior Design is shipped and on a shelf with a 2nd place plaque. Fall 2026 is my last semester at Mason. Here's what I'm carrying into it.",
+    "read": "4 min"
+  },
+  {
+    "slug": "2026-04-26-second-place-senior-design",
+    "title": "2nd Place at Senior Design with a RAG vuln pipeline",
+    "date": "2026-04-26",
+    "tags": ["capstone", "AI-security", "rag"],
+    "excerpt": "Eight months, six teammates, one Avint sponsor, and a Llama 3 vector DB stuffed with security data from corners of the internet that don't have CVE numbers yet. A retrospective on what worked.",
+    "read": "6 min"
+  },
+  {
+    "slug": "2026-04-10-uncatalogued-vulns",
+    "title": "The gap: vulnerabilities that haven't been catalogued yet",
+    "date": "2026-04-10",
+    "tags": ["ai-security", "rag", "threat-intel"],
+    "excerpt": "By the time a CVE shows up in your scanner, the adversaries have known about it for weeks. A short technical note on why early-signal threat intel is hard, and how RAG can help close the loop.",
+    "read": "5 min"
+  },
+  {
+    "slug": "2026-04-05-kphig-showcase",
+    "title": "Off the script for a second: dancing with Kappa Phi Gamma",
+    "date": "2026-04-05",
+    "tags": ["life", "kphig", "gmu"],
+    "excerpt": "A break from the technical posts. Capstone and Showcase have nothing in common on paper, but here's why dancing with my sorority has mattered just as much to my time at Mason.",
+    "read": "3 min"
+  }
+]

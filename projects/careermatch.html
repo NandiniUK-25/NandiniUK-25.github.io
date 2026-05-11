@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>CareerMatch &mdash; PatriotHacks Hackathon</title>
+<meta name="description" content="A 24-hour hackathon build at PatriotHacks: matching student majors and elective patterns to career tracks. HTML/CSS/JS frontend, Tableau analytics, AWS hosting." />
+<link rel="stylesheet" href="../style.css" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%231a0f17'/><text x='6' y='44' font-family='monospace' font-size='30' fill='%23e9b8c8'>%26gt;_</text></svg>" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+    <div class="path">nandini@dev: <span>~/projects/careermatch</span></div>
+    <nav class="nav">
+      <a href="../index.html#about">about</a>
+      <a href="../index.html#projects" class="active">projects</a>
+      <a href="../blog.html">blog</a>
+      <a href="../index.html#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="post-body">
+
+    <h1>CareerMatch &mdash; PatriotHacks Hackathon</h1>
+    <div class="post-meta">PatriotHacks 2023 &middot; 2024 &middot; George Mason University &middot; 24-hour build</div>
+
+    <h2>The brief</h2>
+    <p>
+      Two PatriotHacks runs, both 24-hour builds. The premise was simple: undergraduates pick
+      majors without great visibility into where they actually lead. <strong>Could a small web
+      app take a student's declared major and elective pattern and surface career tracks they
+      hadn't considered?</strong>
+    </p>
+
+    <h2>What we built</h2>
+    <p>
+      A four-person team, three layers:
+    </p>
+    <ul>
+      <li><strong>Frontend</strong> in plain HTML/CSS/JS. A short questionnaire (major, electives so far, interests). No framework, because we wanted to ship before the judging cutoff.</li>
+      <li><strong>Analytics surface</strong> in Tableau. We loaded a small static dataset of major-to-career mappings (sourced from <code>Bureau of Labor Statistics</code> career outlooks plus GMU's own program pages) and used Tableau to visualize the matches and let users explore them after the questionnaire.</li>
+      <li><strong>Hosting</strong> on AWS &mdash; S3 for the static frontend, embedded Tableau Public for the dashboards. Cheap, fast to stand up, no server to manage during demo hour.</li>
+    </ul>
+
+    <h2>What I learned</h2>
+    <p>
+      Two things, both about scope.
+    </p>
+    <p>
+      <strong>First: cut "nice-to-haves" early.</strong> We had a list of features at hour zero
+      that included a recommendation engine and login persistence. By hour eight we'd cut both,
+      and the demo was strictly better for it. The recommendation engine in particular would
+      have eaten the night and added very little to the judging story.
+    </p>
+    <p>
+      <strong>Second: judging is its own design problem.</strong> The judges walk past your
+      table for 90 seconds. The questionnaire-to-dashboard handoff has to be visually obvious
+      from across the room. We re-did the landing screen at hour 18 just to make the demo
+      arc cleaner.
+    </p>
+
+    <h2>Why this is on a cybersecurity portfolio</h2>
+    <p>
+      Hackathons are about <em>shipping under pressure with incomplete information</em>, which
+      is half the actual job in security operations and incident response. PatriotHacks taught
+      me to scope, cut, and ship better than any class did. The other half was getting more
+      comfortable with AWS &mdash; which has carried into the data-center work I do now.
+    </p>
+
+    <p class="dim" style="margin-top:32px">&mdash; Nandini</p>
+    <p style="margin-top:24px">
+      <a href="../index.html#projects">&larr; back to projects</a>
+      &nbsp;&middot;&nbsp;
+      <a href="../blog.html">read the blog &rarr;</a>
+    </p>
+  </article>
+</main>
+</body>
+</html>

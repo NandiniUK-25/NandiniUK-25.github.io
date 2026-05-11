@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Nandini Udayakumar - Cybersecurity Engineering @ GMU</title>
+<meta name="description" content="Nandini Udayakumar - Cybersecurity Engineering student at George Mason University. AVINT capstone, Web Attacks CTF challenge developer, Python and Linux." />
+<meta name="author" content="Nandini Udayakumar" />
+<meta property="og:title" content="Nandini Udayakumar - Cybersecurity Engineering @ GMU" />
+<meta property="og:description" content="Senior Design 2nd Place. Web Attacks CTF dev. AVINT RAG capstone. Graduating Dec 2026." />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://nandiniuk-25.github.io/" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%231a0f17'/><text x='6' y='44' font-family='monospace' font-size='30' fill='%23e9b8c8'>%26gt;_</text></svg>" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+    <div class="path">nandini@dev: <span>~/portfolio</span></div>
+    <nav class="nav">
+      <a href="#about">about</a>
+      <a href="#projects">projects</a>
+      <a href="#now">now</a>
+      <a href="blog.html">blog</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="prompt">whoami</div>
+    <h1>Nandini Udayakumar</h1>
+    <div class="role">
+      <span>Cybersecurity Engineering Student</span>
+      <span class="sep">|</span>
+      <span>AI Threat Research</span>
+      <span class="sep">|</span>
+      <span>CTF Developer</span>
+    </div>
+    <div class="typed-line"><span id="typed"></span><span class="cursor"></span></div>
+    <div class="actions">
+      <a class="btn" href="#projects">view projects</a>
+      <a class="btn alt" href="assets/resume.pdf" download>download resume</a>
+      <a class="btn dim" href="https://github.com/NandiniUK-25" target="_blank" rel="noopener">github &rarr;</a>
+      <a class="btn dim" href="https://www.linkedin.com/in/nandiniudayakumar/" target="_blank" rel="noopener">linkedin &rarr;</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <h2>about <span class="meta">cat ./README.md</span></h2>
+    <p>
+      I'm a Cybersecurity Engineering student at <strong>George Mason University</strong>,
+      graduating <strong>December 2026</strong>. I work the intersection of AI and security &mdash;
+      most recently leading a senior design team that earned <strong>2nd Place</strong>
+      at the GMU CYSE Senior Design Competition in the <em>AI-Enabled Vulnerability Research,
+      Reverse Engineering &amp; Offensive Testing</em> track, partnered with
+      <strong>Avint LLC</strong>.
+    </p>
+    <p>
+      Day to day, I split time between an <strong>IT Operations Intern</strong> role at
+      <strong>Renovics LLC</strong> (vendor coordination, ticket triage, process improvement) and
+      a <strong>Security Professional</strong> role at a Tier III+ <strong>QTS Data Center</strong>
+      campus (access control, surveillance audits, incident documentation). I've also developed
+      Web Attack CTF challenges for <strong>HackFax &times; PatriotHacks</strong> two years
+      running &mdash; SQLi, XSS, broken access control &mdash; and have hackathon experience going
+      back to 2023.
+    </p>
+    <p class="dim">
+      tl;dr &mdash; I build things that find weaknesses before adversaries do, and I write down
+      what I learn along the way.
+    </p>
+  </section>
+
+  <section id="now">
+    <h2>now <span class="meta">live status &middot; final semester ahead</span></h2>
+    <div class="now-block">
+      <div class="now-line"><span class="key">&gt; semester</span><span class="val">Spring 2026 wrapping &middot; Fall 2026 is my last</span></div>
+      <div class="now-line"><span class="key">&gt; coursework</span><span class="val">Cryptography Fundamentals, Systems Security &amp; Resilience, Cyber Vulnerability</span></div>
+      <div class="now-line"><span class="key">&gt; capstone</span><span class="val"><span class="pulse"></span>AVINT &mdash; RAG Risk Enumeration of Uncatalogued Vulnerabilities (won 2nd Place, Apr 2026)</span></div>
+      <div class="now-line"><span class="key">&gt; building</span><span class="val">CryptoLab &mdash; a Python toolkit for classical and modern crypto coursework</span></div>
+      <div class="now-line"><span class="key">&gt; studying</span><span class="val">CompTIA Security+ prep &middot; eyeing AWS Cloud Practitioner next</span></div>
+      <div class="now-line"><span class="key">&gt; recruiting</span><span class="val">Summer 2026 + new grad roles &mdash; open to SOC, AppSec, GRC, AI security, IT engineering</span></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>featured projects <span class="meta">ls -la ./projects</span></h2>
+    <div class="grid">
+
+      <article class="card">
+        <div class="tag-row">
+          <span class="tag cyan">2nd place</span>
+          <span class="tag">capstone</span>
+          <span class="tag">AI security</span>
+          <span class="tag">RAG</span>
+        </div>
+        <h3><a href="projects/avint.html">AVINT &mdash; RAG Risk Enumeration of Uncatalogued Vulnerabilities</a></h3>
+        <a class="award" href="https://www.linkedin.com/feed/update/urn:li:activity:7458667062006243329/" target="_blank" rel="noopener">2nd Place &middot; CYSE Senior Design Competition 2026</a>
+        <p class="desc">
+          Year-long senior design with <strong>Avint LLC</strong>. We built an AI pipeline that
+          mines unstructured threat intel from GitHub, Exploit-DB, and Seclists RSS, runs it
+          through an NLP/NER chunker, and pushes the embeddings into a Llama 3 vector store.
+          On top of that sits a modified <strong>DREAD</strong> risk scorer that produces 0&ndash;100
+          assessments for vulnerabilities that haven't been catalogued in the CVE database yet.
+          The point: shorten the window between discovery and triage.
+        </p>
+        <div class="meta"><span>2025&ndash;2026 &middot; GMU x Avint</span><span>python &middot; NLP &middot; llama3</span></div>
+      </article>
+
+      <article class="card">
+        <div class="tag-row">
+          <span class="tag cyan">shipped</span>
+          <span class="tag">CTF</span>
+          <span class="tag">web-security</span>
+        </div>
+        <h3><a href="https://github.com/NandiniUK-25?tab=repositories&amp;q=valentines" target="_blank" rel="noopener">HackFax &times; PatriotHacks &mdash; Web Attacks Developer</a></h3>
+        <p class="desc">
+          Two years on the Web Attacks development track at <strong>GMU's largest CTF</strong>.
+          I author intentionally vulnerable web apps for SQL injection, XSS, IDOR, and broken
+          access control categories, then run them in the live arena. The work splits between
+          payload design, infra babysitting (resetting containers between solves), and
+          watching how players actually break what you build &mdash; which is the most
+          useful defensive education there is.
+        </p>
+        <p class="desc" style="font-size:12px;color:var(--ink-dim);margin-top:6px">
+          public challenges:
+          <a href="https://github.com/NandiniUK-25/catchmyheart" target="_blank" rel="noopener">catchmyheart</a>,
+          <a href="https://github.com/NandiniUK-25/cupids_heartgram_attack" target="_blank" rel="noopener">cupids_heartgram_attack</a>,
+          <a href="https://github.com/NandiniUK-25/Valentines_Med_Challenge" target="_blank" rel="noopener">Valentines_Med_Challenge</a>
+        </p>
+        <div class="meta"><span>Feb 2025 &middot; Feb 2026</span><span>python &middot; html &middot; js</span></div>
+      </article>
+
+      <article class="card">
+        <div class="tag-row">
+          <span class="tag yellow">in-dev</span>
+          <span class="tag">crypto</span>
+          <span class="tag">python</span>
+        </div>
+        <h3><a href="https://github.com/NandiniUK-25/CryptoLab" target="_blank" rel="noopener">CryptoLab</a></h3>
+        <p class="desc">
+          A growing Python toolkit I'm building alongside my Cryptography Fundamentals course.
+          Classical (Caesar, Vigen&egrave;re, Hill, transposition) with frequency-analysis
+          breakers, then modern primitives: AES-GCM round-trip, RSA key generation,
+          Diffie-Hellman exchange, and HMAC verification helpers. The goal is a single
+          CLI I can reach for during CTFs instead of cobbling four StackOverflow snippets
+          together at 2am.
+        </p>
+        <div class="meta"><span>2026 &middot; personal</span><span>python &middot; click</span></div>
+      </article>
+
+      <article class="card">
+        <div class="tag-row">
+          <span class="tag cyan">shipped</span>
+          <span class="tag">hackathon</span>
+          <span class="tag">web</span>
+        </div>
+        <h3><a href="projects/careermatch.html">CareerMatch &mdash; PatriotHacks Hackathon</a></h3>
+        <p class="desc">
+          Two-time PatriotHacks participant (2023, 2024). With a four-person team we built a
+          web app that matches students' declared majors and elective patterns to career
+          tracks, using HTML/CSS/JS on the front end, Tableau for the analytics surface, and
+          AWS for hosting. Tight 24-hour build, working demo by judging, and a useful lesson
+          in scoping &mdash; we cut three "nice-to-haves" by hour 8 and finished better for it.
+        </p>
+        <div class="meta"><span>Oct 2023 &middot; Oct 2024</span><span>html &middot; tableau &middot; aws</span></div>
+      </article>
+
+      <article class="card">
+        <div class="tag-row">
+          <span class="tag yellow">ongoing</span>
+          <span class="tag">CTF</span>
+          <span class="tag">writeups</span>
+        </div>
+        <h3><a href="https://github.com/NandiniUK-25/CTF-Writeups" target="_blank" rel="noopener">CTF Writeups &amp; Notes</a></h3>
+        <p class="desc">
+          A public notebook of CTF solves &mdash; picoCTF, TryHackMe rooms, HackTheBox boxes,
+          plus the HackFax challenges I've reverse-engineered after they retired. Mostly web
+          and forensics, some crypto. I write up each one less for the audience and more so
+          future-me remembers why <code>../../../etc/passwd</code> didn't work the first time.
+        </p>
+        <div class="meta"><span>ongoing</span><span>markdown</span></div>
+      </article>
+
+      <article class="card">
+        <div class="tag-row">
+          <span class="tag yellow">in-dev</span>
+          <span class="tag">blue team</span>
+          <span class="tag">detection</span>
+        </div>
+        <h3><a href="https://github.com/NandiniUK-25" target="_blank" rel="noopener">AccessAudit</a></h3>
+        <p class="desc">
+          A Python utility for parsing physical access control logs and surfacing the
+          anomalies a human reviewer would otherwise miss: out-of-hours badge-ins,
+          credentials used at two readers within an impossible travel window, and gaps
+          where surveillance coverage should have caught a transit but didn't. Inspired
+          by the manual audit work I do at the <strong>QTS</strong> Tier III+ campus.
+          Inputs are vendor-agnostic CSV; output is a structured anomaly report.
+        </p>
+        <div class="meta"><span>2026 &middot; personal</span><span>python &middot; pandas</span></div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="experience">
+    <h2>experience <span class="meta">git log --oneline</span></h2>
+    <div class="now-block">
+      <div class="now-line"><span class="key">&gt; now</span><span class="val">IT Operations Intern &middot; Renovics LLC &middot; Ashburn, VA</span></div>
+      <div class="now-line"><span class="key">&gt; now</span><span class="val">Security Professional &middot; QTS Data Centers &middot; Ashburn, VA</span></div>
+      <div class="now-line"><span class="key">&gt; 2024&ndash;26</span><span class="val">Private Tutor &middot; Enrich and Excel &middot; Chantilly, VA</span></div>
+      <div class="now-line"><span class="key">&gt; 2022&ndash;23</span><span class="val">Student Teacher &middot; EduTutorVA &middot; Fairfax, VA</span></div>
+    </div>
+  </section>
+
+  <section id="skills">
+    <h2>skills <span class="meta">env | grep TOOLS</span></h2>
+    <div class="skill-grid">
+      <div class="skill-block">
+        <h4>Security</h4>
+        <div class="pills">
+          <span class="pill">Threat Analysis</span><span class="pill">Risk Assessment</span>
+          <span class="pill">Incident Response</span><span class="pill">Access Control</span>
+          <span class="pill">Vulnerability ID</span><span class="pill">System Hardening</span>
+          <span class="pill">Security Auditing</span><span class="pill">Network Security</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Offensive / CTF</h4>
+        <div class="pills">
+          <span class="pill">SQLi</span><span class="pill">XSS</span>
+          <span class="pill">Broken Access Control</span><span class="pill">Burp Suite</span>
+          <span class="pill">Wireshark</span><span class="pill">Nmap</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>AI / Data</h4>
+        <div class="pills">
+          <span class="pill">RAG</span><span class="pill">NLP</span>
+          <span class="pill">Named Entity Recognition</span><span class="pill">Llama 3</span>
+          <span class="pill">Vector DBs</span><span class="pill">DREAD scoring</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Programming</h4>
+        <div class="pills">
+          <span class="pill">Python</span><span class="pill">Bash</span>
+          <span class="pill">JavaScript</span><span class="pill">HTML/CSS</span>
+          <span class="pill">SQL</span>
+        </div>
+      </div>
+      <div class="skill-block">
+        <h4>Platforms</h4>
+        <div class="pills">
+          <span class="pill">Linux</span><span class="pill">Windows</span>
+          <span class="pill">AWS</span><span class="pill">Docker</span>
+          <span class="pill">Tableau</span><span class="pill">Microsoft 365</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="certs">
+    <h2>education &amp; certifications</h2>
+    <div class="cert-row">
+      <div class="cert">B.S. Cybersecurity Engineering &middot; George Mason University <span class="stat">Dec 2026</span></div>
+      <div class="cert">CYSE Senior Design 2nd Place &middot; AI-Enabled Vuln Research <span class="stat">Apr 2026</span></div>
+      <div class="cert dim">CompTIA Security+ <span class="stat">studying</span></div>
+      <div class="cert dim">AWS Cloud Practitioner <span class="stat">queued</span></div>
+    </div>
+  </section>
+
+  <section id="writing">
+    <h2>recent posts <span class="meta">tail -n 3 ./blog</span></h2>
+    <div class="grid post-list" id="post-list">
+      <!-- populated by script.js from posts/index.json -->
+    </div>
+    <div style="margin-top:14px"><a href="blog.html">read all posts &rarr;</a></div>
+  </section>
+
+  <section id="contact" class="contact">
+    <h2>contact</h2>
+    <p class="dim">recruiters, collaborators, fellow CTF folks &mdash; pick a channel.</p>
+    <div class="row">
+      <a class="btn" href="mailto:nandini.uk04@gmail.com">email</a>
+      <a class="btn alt" href="https://www.linkedin.com/in/nandiniudayakumar/" target="_blank" rel="noopener">linkedin</a>
+      <a class="btn dim" href="https://github.com/NandiniUK-25" target="_blank" rel="noopener">github</a>
+    </div>
+  </section>
+
+  <footer>
+    <div>cd ~ &nbsp;&middot;&nbsp; built with html/css and a lot of coffee</div>
+    <div>last updated: <span class="last-updated" id="last-updated">2026-05-10</span></div>
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

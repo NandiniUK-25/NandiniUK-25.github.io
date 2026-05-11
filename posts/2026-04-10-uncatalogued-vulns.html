@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Uncatalogued vulns &middot; Nandini Udayakumar</title>
+<link rel="stylesheet" href="../style.css" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%231a0f17'/><text x='6' y='44' font-family='monospace' font-size='30' fill='%23e9b8c8'>%26gt;_</text></svg>" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+    <div class="path">nandini@dev: <span>~/blog/2026-04-10</span></div>
+    <nav class="nav">
+      <a href="../index.html#about">about</a>
+      <a href="../index.html#projects">projects</a>
+      <a href="../blog.html" class="active">blog</a>
+      <a href="../index.html#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="post-body">
+    <h1>The gap: vulnerabilities that haven't been catalogued yet</h1>
+    <div class="post-meta">2026-04-10 &middot; 5 min read &middot; ai-security &middot; rag &middot; threat-intel</div>
+
+    <p>
+      Here's a thing I didn't really understand until I was elbow-deep in our capstone: the
+      <strong>CVE catalog is a lagging indicator</strong>. By the time a vulnerability has a
+      CVE number, a CVSS score, and a row in your scanner's database, it has typically been
+      <em>discussed</em> in some corner of the internet for days or weeks. The defenders see
+      a row. The attackers saw a GitHub commit, a Mastodon post, a Discord drop.
+    </p>
+
+    <p>
+      This isn't anyone's fault. NVD does an enormous job. Triage is genuinely hard. But it
+      means if you only rely on catalogued data, you're <em>structurally late</em>.
+    </p>
+
+    <h2>So what would early signal look like?</h2>
+    <p>
+      The free-text discussions where vulnerabilities <em>first surface</em> are noisy. A
+      single useful signal is buried in thousands of false positives: someone joking,
+      someone re-posting an old issue, someone speculating. The whole problem boils down
+      to <strong>retrieval and ranking on unstructured threat intel</strong>.
+    </p>
+
+    <p>That phrasing should sound familiar &mdash; it's exactly what RAG is good at.</p>
+
+    <h2>Why RAG instead of fine-tuning</h2>
+    <p>
+      I asked Katie this early in the year and the answer stuck with me: <em>"You don't want
+      a model that <strong>knows</strong> about vulnerabilities. You want a model that can
+      <strong>find</strong> the right vulnerability discussion when an analyst is staring at
+      a particular product and a particular symptom."</em>
+    </p>
+
+    <p>
+      RAG fits because:
+    </p>
+    <ul>
+      <li>The signal is constantly drifting (new repos, new feeds, new platforms). A fine-tuned model goes stale within weeks.</li>
+      <li>Analysts need <strong>citations</strong>, not vibes. If a score says "high," they need to see the underlying chunk.</li>
+      <li>You can swap collectors and embedders without retraining anything.</li>
+    </ul>
+
+    <h2>The hard parts (in order)</h2>
+    <ol style="margin:12px 0 12px 24px">
+      <li><strong>NER for security entities.</strong> Off-the-shelf NER doesn't know what a CPE string is.</li>
+      <li><strong>Deduplication.</strong> A single new vulnerability shows up in 40 different repos within hours. You don't want to score the same finding 40 times.</li>
+      <li><strong>Calibration.</strong> Our DREAD scores were defensible but <em>not</em> well-calibrated against eventual real CVSS. That's eval work for the summer.</li>
+      <li><strong>Adversarial input.</strong> The corpus is partially adversarial &mdash; people <em>do</em> post fake exploits as PR. A real production system would have to think about poisoning.</li>
+    </ol>
+
+    <h2>What I want to write next</h2>
+    <p>
+      A focused post on <strong>k-selection in retrieval</strong>. We found k=5 outperformed k=10
+      on our test set, which surprised me until I realized k=10 was just stuffing the prompt
+      with redundant chunks. There's something useful in there about the relationship
+      between chunk diversity and retrieval depth that I haven't fully worked out yet.
+    </p>
+
+    <p class="dim" style="margin-top:32px">&mdash; Nandini</p>
+    <p style="margin-top:24px"><a href="../blog.html">&larr; back to blog</a></p>
+  </article>
+</main>
+</body>
+</html>

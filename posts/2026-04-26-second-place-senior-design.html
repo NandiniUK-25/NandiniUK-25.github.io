@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>2nd Place at Senior Design &middot; Nandini Udayakumar</title>
+<link rel="stylesheet" href="../style.css" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%231a0f17'/><text x='6' y='44' font-family='monospace' font-size='30' fill='%23e9b8c8'>%26gt;_</text></svg>" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+    <div class="path">nandini@dev: <span>~/blog/2026-04-26</span></div>
+    <nav class="nav">
+      <a href="../index.html#about">about</a>
+      <a href="../index.html#projects">projects</a>
+      <a href="../blog.html" class="active">blog</a>
+      <a href="../index.html#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="post-body">
+    <h1>2nd Place at Senior Design with a RAG vuln pipeline</h1>
+    <div class="post-meta">2026-04-26 &middot; 6 min read &middot; capstone &middot; AI-security &middot; rag</div>
+
+    <p>
+      The CYSE Senior Design Competition wrapped two weeks ago and I've finally had enough
+      sleep to write this. Our team &mdash; six of us, sponsored by <strong>Avint LLC</strong>,
+      advised by Dr. Suresh Subbaratinam, mentored by Katie Jones from Avint &mdash; took
+      <strong>2nd Place</strong> in the AI-Enabled Vulnerability Research, Reverse Engineering
+      &amp; Offensive Testing track. That's the win. This is the retro.
+    </p>
+
+    <h2>The problem</h2>
+    <p>
+      "Uncatalogued vulnerabilities don't wait for formal classification." That's the line we
+      kept coming back to in the project room at 11pm. By the time a vulnerability gets a CVE
+      number and ends up in your scanner's signature feed, adversaries have often known about
+      it for weeks. The gap between <em>something being discussed in the wild</em> and
+      <em>something being scannable</em> is the gap defenders lose in.
+    </p>
+    <p>
+      Our brief from Avint: <strong>can you build something that surfaces those discussions
+      earlier, in a way analysts can actually use?</strong>
+    </p>
+
+    <h2>What we built</h2>
+    <p>
+      A Retrieval-Augmented Generation (RAG) pipeline with four stages:
+    </p>
+    <ol style="margin:12px 0 12px 24px">
+      <li><strong>Collection.</strong> Pulls unstructured security data from GitHub commits and issues, Exploit-DB drops, and the SecLists RSS feeds. Nothing exotic &mdash; everything is open-source.</li>
+      <li><strong>NLP + NER.</strong> Extracts structured entities (product, version, vector, impact verb) from messy free-text.</li>
+      <li><strong>Chunk + embed.</strong> Splits the documents, embeds them, and pushes them into a Llama 3 vector store with the named entities preserved as metadata.</li>
+      <li><strong>Scoring.</strong> A modified <strong>DREAD</strong> rubric on top of the retrieved chunks &mdash; we wanted 0&ndash;100 risk numbers instead of binary "is this a vuln," so analysts can sort.</li>
+    </ol>
+
+    <h2>What worked</h2>
+    <p>
+      The reasoning step. Even when the base Llama 3 model and our RAG-augmented model produced
+      the <em>same</em> numeric score, our pipeline produced much better justifications &mdash;
+      because it could cite the underlying chunks it pulled from. Analysts in our pilot review
+      said the cited evidence was where most of the value was. We pitched it as
+      <em>"the score is a hint, the retrieval trail is the product."</em>
+    </p>
+    <p>
+      Chunking strategy. We tried k=3, k=5, and k=10 retrievals. <strong>k=5 was the sweet spot.</strong>
+      k=10 actually got <em>worse</em> because too much retrieved noise crowded out signal &mdash;
+      a finding we ended up putting on the poster.
+    </p>
+
+    <h2>What I'd change</h2>
+    <ul>
+      <li><strong>Eval was thin.</strong> We compared retrieved-vs-baseline scores on a holdout, but didn't have a ground-truth set of "actual CVSS scores once these eventually got catalogued." That's the eval I want to run next.</li>
+      <li><strong>NER was brittle.</strong> Off-the-shelf NER misses security-specific entities (CVEs, MITRE ATT&amp;CK techniques, software versions). A fine-tuned model would have helped a lot.</li>
+      <li><strong>Collection scope creep.</strong> We tried to add Reddit + Mastodon late and it almost ate the timeline. Should have cut earlier.</li>
+    </ul>
+
+    <h2>Thanks</h2>
+    <p>
+      To my teammates &mdash; Abdul Karim, Zach, Parth, Hamad, and Arshaj. To <strong>Avint</strong>
+      for trusting six undergrads with a real problem, and to Dr. Subbaratinam, Akshitha
+      Srinivasan, Sonia Khan, and Katie Jones for the steady stream of "are you sure?" questions
+      that kept us honest.
+    </p>
+    <p>
+      Capstone is the kind of project you only get once. I'm glad we made it count.
+    </p>
+
+    <p class="dim" style="margin-top:32px">&mdash; Nandini</p>
+    <p style="margin-top:24px"><a href="../blog.html">&larr; back to blog</a></p>
+  </article>
+</main>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>blog &middot; Nandini Udayakumar</title>
+<meta name="description" content="Notes on cybersecurity, AI-enabled vuln research, and the last semester at George Mason." />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%231a0f17'/><text x='6' y='44' font-family='monospace' font-size='30' fill='%23e9b8c8'>%26gt;_</text></svg>" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+    <div class="path">nandini@dev: <span>~/blog</span></div>
+    <nav class="nav">
+      <a href="index.html#about">about</a>
+      <a href="index.html#projects">projects</a>
+      <a href="index.html#now">now</a>
+      <a href="blog.html" class="active">blog</a>
+      <a href="index.html#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <section>
+    <h2>blog <span class="meta">ls -la ./posts</span></h2>
+    <p class="dim">half lab notebook, half public journal. CTF retros, capstone notes, what I'm reading, and the occasional "what I would tell freshman-me" moment. updated when I have something worth saying.</p>
+    <div class="grid post-list" id="post-list" style="margin-top:18px"></div>
+  </section>
+
+  <footer>
+    <div><a href="index.html">&larr; back to home</a></div>
+  </footer>
+</main>
+
+<script>
+fetch("posts/index.json?v=" + Date.now())
+  .then(r => r.json())
+  .then(posts => {
+    document.getElementById("post-list").innerHTML = posts.map(p => `
+      <article class="card">
+        <div class="tag-row">
+          <span class="tag cyan">post</span>
+          ${(p.tags||[]).map(t=>`<span class="tag">${t}</span>`).join("")}
+        </div>
+        <h3><a href="posts/${p.slug}.html">${p.title}</a></h3>
+        <p class="desc">${p.excerpt}</p>
+        <div class="meta"><span>${p.date}</span><span>${p.read || "3 min"}</span></div>
+      </article>
+    `).join("");
+  });
+</script>
+</body>
+</html>

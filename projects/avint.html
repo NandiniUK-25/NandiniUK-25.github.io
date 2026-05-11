@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>AVINT &mdash; RAG Risk Enumeration of Uncatalogued Vulnerabilities</title>
+<meta name="description" content="Senior design capstone with Avint LLC. 2nd Place, CYSE Senior Design Competition 2026 - AI-Enabled Vulnerability Research, Reverse Engineering & Offensive Testing track." />
+<link rel="stylesheet" href="../style.css" />
+<link rel="icon" href="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'><rect width='64' height='64' fill='%231a0f17'/><text x='6' y='44' font-family='monospace' font-size='30' fill='%23e9b8c8'>%26gt;_</text></svg>" />
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="dots"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span></div>
+    <div class="path">nandini@dev: <span>~/projects/avint</span></div>
+    <nav class="nav">
+      <a href="../index.html#about">about</a>
+      <a href="../index.html#projects" class="active">projects</a>
+      <a href="../blog.html">blog</a>
+      <a href="../index.html#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article class="post-body">
+
+    <h1>AVINT &mdash; RAG Risk Enumeration of Uncatalogued Vulnerabilities</h1>
+    <div class="post-meta">Senior Design Capstone &middot; Aug 2025 &mdash; Apr 2026 &middot; George Mason University CYSE 492/493</div>
+
+    <a class="award" style="margin-bottom:20px" href="https://www.linkedin.com/feed/update/urn:li:activity:7458667062006243329/" target="_blank" rel="noopener">2nd Place &middot; CYSE Senior Design Competition 2026 &middot; AI-Enabled Vulnerability Research, Reverse Engineering &amp; Offensive Testing</a>
+
+    <figure>
+      <img src="../assets/avint-team.jpg" alt="The AVINT senior design team holding their 2nd Place trophies in front of the project poster: Hamad Bouarki, Nandini Udayakumar, Katie Jones (Avint mentor), Zach Bamford, Abdul Karim Alfityani, Arshaj Singh, and Parth Basnet." />
+      <figcaption>The team after the showcase. L-R: Hamad, Nandini, Katie Jones (Avint), Zach, Abdul Karim, Arshaj, Parth.</figcaption>
+    </figure>
+
+    <h2>The problem</h2>
+    <p>
+      <strong>Uncatalogued vulnerabilities don't wait for formal classification.</strong> By the
+      time a vulnerability has a CVE number and ends up in a scanner's signature feed, it has
+      typically been discussed in some corner of the internet for days or weeks. The gap
+      between <em>something being discussed</em> and <em>something being scannable</em> is the
+      gap defenders lose in.
+    </p>
+    <p>
+      Avint LLC sponsored our team to take a swing at closing that gap: <strong>can we build a
+      system that surfaces emerging threat discussions earlier than NVD, in a form analysts can
+      actually use?</strong>
+    </p>
+
+    <h2>What we built</h2>
+    <p>A four-stage Retrieval-Augmented Generation pipeline:</p>
+    <ol>
+      <li><strong>Collection.</strong> Open-source ingest from GitHub commits and issues, Exploit-DB drops, and SecLists RSS feeds.</li>
+      <li><strong>NLP + NER.</strong> Extract structured entities (product, version, attack vector, impact) from messy free-text security writeups.</li>
+      <li><strong>Chunk + embed.</strong> Split documents and push embeddings into a Llama 3 vector store, preserving named entities as retrieval metadata.</li>
+      <li><strong>Scoring.</strong> A modified <strong>DREAD</strong> rubric runs over the retrieved chunks, producing a 0&ndash;100 risk score so analysts can sort and triage.</li>
+    </ol>
+
+    <figure>
+      <img src="../assets/avint-poster.jpg" alt="Project poster: RAG Risk Enumeration of Uncatalogued Vulnerabilities, by Abdul Karim Alfityani, Zach Bamford, Parth Basnet, Hamad Bouarki, Arshaj Singh, Nandini Udaya Kumar. Avint LLC and GMU CYSE." />
+      <figcaption>The poster we defended at the senior design showcase.</figcaption>
+    </figure>
+
+    <h2>Results</h2>
+    <p>
+      The base Llama 3 model produced comparable numeric scores to our RAG-augmented model on
+      our test set. <strong>The win was in the reasoning, not the score</strong> &mdash; our
+      pipeline could cite the underlying chunks that justified each score, and analysts in the
+      pilot review said the citation trail was where most of the value lived. We pitched it as:
+      <em>"the score is a hint, the retrieval trail is the product."</em>
+    </p>
+    <p>
+      We also tested retrieval depth (k=3, k=5, k=10) and found that <strong>k=5 outperformed
+      both</strong> &mdash; k=10 made things <em>worse</em> because redundant chunks crowded out
+      signal. This finding made it onto the final poster.
+    </p>
+
+    <h2>What I would change</h2>
+    <ul>
+      <li><strong>Ground-truth eval.</strong> We compared our augmented model against the base model, but didn't have a holdout of vulnerabilities that were eventually catalogued late. That's the eval I want to run with summer time.</li>
+      <li><strong>Security-tuned NER.</strong> Off-the-shelf NER misses CPE strings, MITRE ATT&amp;CK techniques, and software version ranges. A fine-tuned model would have helped.</li>
+      <li><strong>Scope discipline.</strong> We tried to add Reddit and Mastodon feeds in March and it almost ate the timeline. Should have cut earlier.</li>
+    </ul>
+
+    <h2>Team and credits</h2>
+    <p>
+      Six undergrads: Abdul Karim Alfityani, Zach Bamford, Parth Basnet, Hamad Bouarki, Arshaj
+      Singh, and me. Course coordinator: Dr. Wei. Mentor on the Avint side: Katie Jones,
+      consistently the person who asked the right "are you sure?" question. Industry advisors
+      from Avint: Dr. Suresh Subbaratinam, Akshitha Srinivasan, and Sonia Khan.
+    </p>
+    <p>
+      Thanks to <strong>George Mason University's Cyber Security Engineering department</strong>
+      for the project framework and to <strong>Avint LLC</strong> for trusting six undergrads
+      with a real research problem.
+    </p>
+
+    <figure class="contain">
+      <img src="../assets/avint-trophy.jpg" alt="2nd Place trophy resting on the GMU Senior Design Projects 2025-2026 booklet, CYSE 492/493, April 2026" />
+      <figcaption>The trophy and the senior design book. CYSE 492/493, April 2026.</figcaption>
+    </figure>
+
+    <p class="dim" style="margin-top:32px">&mdash; Nandini</p>
+    <p style="margin-top:24px">
+      <a href="../index.html#projects">&larr; back to projects</a>
+      &nbsp;&middot;&nbsp;
+      <a href="../blog.html">read the blog &rarr;</a>
+    </p>
+  </article>
+</main>
+</body>
+</html>
